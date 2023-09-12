@@ -2,7 +2,7 @@ class CaixaDaLanchonete {
 
     calcularValorDaCompra(metodoDePagamento, itens) {
 
-        const formasDePagamentoValidas = ['dinheiro', 'debito', 'credito'] //
+        const formasDePagamentoValidas = ['dinheiro', 'debito', 'credito']
         let arrayItensPedidos = new Array 
         let somaItemsDoPedido = 0.0
         let resultadoDaCompra
