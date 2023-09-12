@@ -3,21 +3,21 @@ class CaixaDaLanchonete {
     calcularValorDaCompra(metodoDePagamento, itens) {
 
         //INICIALIZANDO COM ALGUMAS VARIAVEIS
-        const formasDePagamentoValidas = ['dinheiro', 'debito', 'credito'] //essa constante inicializa com um array contendo três strings com os metódos de pagamento válidos
-        let arrayItensPedidos = new Array //Variável chamada arrayItensPedidos, contendo uma array vazia.
-        let somaItemsDoPedido = 0.0 //Essa variável será utilizada para acumular o valor total dos itens do pedido 
-        let resultadoDaCompra //Essa variável será utilizada para armazenar o resultado específico de cada compra,
+        const formasDePagamentoValidas = ['dinheiro', 'debito', 'credito'] 
+        let arrayItensPedidos = new Array 
+        let somaItemsDoPedido = 0.0 
+        let resultadoDaCompra 
 
         //VALIDA AS REGRAS PARA REALIZAR A COMPRA
         //verificando se há itens no carrinho de compra
-        if (!Array.isArray(itens) || itens.length == 0) { //Esta condição verifica se a variável itens é um array e se possui pelo menos um item.
-            resultadoDaCompra = 'Não há itens no carrinho de compra!' //Se não for um array ou se estiver vazio, a mensagem 'Não há itens no carrinho de compra!' é atribuída à variável resultadoDaCompra.
-        }else if (!formasDePagamentoValidas.includes(metodoDePagamento)) { //Esta condição verifica se o método de pagamento escolhido (metodoDePagamento) está incluído na lista de formas de pagamento válidas (formasDePagamentoValidas). Se não estiver, a mensagem 'Forma de pagamento inválida!' é atribuída à variável resultadoDaCompra.
+        if (!Array.isArray(itens) || itens.length == 0) { 
+            resultadoDaCompra = 'Não há itens no carrinho de compra!' 
+        }else if (!formasDePagamentoValidas.includes(metodoDePagamento)) { 
             resultadoDaCompra = 'Forma de pagamento inválida!'
         } else {
-            itens.forEach(item => { //Esse bloco de código diz: para cada item no array {...}):
-                let itemPedido = this.criaItemPedido(item) //Crie um item de pedido com base no item do carrinho.
-                let infoCodigoPedido = this.cardapio().get(itemPedido.codigo) //Pega o código do ItemPedido e busca (get) as informações desse item no cardapio
+            itens.forEach(item => { 
+                let itemPedido = this.criaItemPedido(item) 
+                let infoCodigoPedido = this.cardapio().get(itemPedido.codigo) 
 
                 if(itemPedido.qtd == 0) { 
                     resultadoDaCompra = "Quantidade inválida!"  
